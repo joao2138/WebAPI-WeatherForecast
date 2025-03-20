@@ -30,9 +30,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("AllowCors");
+
+
 //esta é a rota da api
 app.forecastRout();
-app.UseCors("AllowCors");
+
 
 
 app.Run();
