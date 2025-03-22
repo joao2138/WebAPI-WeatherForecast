@@ -2,23 +2,7 @@ using WebAPI_WeatherForecast.extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddCors(options => {
-   options.AddPolicy("AllowCors",
-   policy => {
-      policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
-   }
-   );
-});
-
-
-//builder.WebHost.ConfigureKestrel(options =>
-//{
-//   options.ListenAnyIP(4000);
-//});
-
+builder.AddServices();
 
 
 var app = builder.Build();
@@ -34,10 +18,8 @@ app.UseCors("AllowCors");
 
 
 //esta é a rota da api
-app.forecastRout();
+app.ForecastRout();
 
 
 
 app.Run();
-
-

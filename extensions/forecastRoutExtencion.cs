@@ -1,15 +1,14 @@
-﻿using System.Data.SqlTypes;
-using System.Globalization;
+﻿using System.Globalization;
 using WebAPI_WeatherForecast.functions;
 using WebAPI_WeatherForecast.models;
 
 namespace WebAPI_WeatherForecast.extensions
 {
-   public static class forecastRoutExtencion
+   public static class ForecastRoutExtencion
    {
-      public static void forecastRout(this WebApplication app)
+      public static void ForecastRout(this WebApplication app)
       {
-         app.MapGet("/weatherforecast", (string? City, HttpContext http) =>
+         app.MapGet("/weatherforecast", (string? City) =>
          {
             //minha ideia é tentar gerar uma previsão aleatoria sempre que
             //não for passado um endereço

@@ -1,6 +1,4 @@
-﻿using System.Security.AccessControl;
-
-namespace WebAPI_WeatherForecast.functions
+﻿namespace WebAPI_WeatherForecast.functions
 {
    public static class Resolve
    {
