@@ -4,6 +4,7 @@
    {
 
       public static Random rnd = new();
+      public static Random PlaceRnd = new();
 
       static readonly string[] summaries =
             [

@@ -30,6 +30,11 @@ namespace WebAPI_WeatherForecast.extensions
             Random rnd = new(seed);
             Resolve.rnd = rnd;
 
+            //criando um gerador aleatorio a parte, para que sempre que se consultar
+            //em um local especifico, a coordenada não mude
+            Resolve.PlaceRnd = new(City?.Length ?? 10);
+
+
             var culture = new CultureInfo("pt-BR");
 
 
@@ -61,8 +66,8 @@ namespace WebAPI_WeatherForecast.extensions
                Place: new PlaceModel(
                      country: "Brazil",
                      City: City ?? "Vila Velha",
-                     Long: rnd.NextDouble() * 360 - 180, //simulando coordenadas
-                     lat: rnd.NextDouble() * 180 - 90    //geográficas
+                     Long: Resolve.PlaceRnd.NextDouble() * 360 - 180, //simulando coordenadas
+                     lat: Resolve.PlaceRnd.NextDouble() * 180 - 90    //geográficas
                      ),
                today,
                NextDays: forecasts
